@@ -36,6 +36,14 @@ namespace modbusTP
             this.buttonConnexion = new System.Windows.Forms.Button();
             this.buttonDeconnexion = new System.Windows.Forms.Button();
             this.textBoxStatut = new System.Windows.Forms.TextBox();
+            this.buttonLireTension = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.labelTensionMoteur = new System.Windows.Forms.Label();
+            this.textBoxTensionLire = new System.Windows.Forms.TextBox();
+            this.textBoxThermique = new System.Windows.Forms.TextBox();
+            this.labelThermique = new System.Windows.Forms.Label();
+            this.buttonThermique = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelAdresseIP
@@ -85,11 +93,84 @@ namespace modbusTP
             this.textBoxStatut.Size = new System.Drawing.Size(350, 364);
             this.textBoxStatut.TabIndex = 4;
             // 
+            // buttonLireTension
+            // 
+            this.buttonLireTension.Location = new System.Drawing.Point(13, 33);
+            this.buttonLireTension.Name = "buttonLireTension";
+            this.buttonLireTension.Size = new System.Drawing.Size(44, 23);
+            this.buttonLireTension.TabIndex = 5;
+            this.buttonLireTension.Text = "Lire";
+            this.buttonLireTension.UseVisualStyleBackColor = true;
+            this.buttonLireTension.Click += new System.EventHandler(this.buttonLireTension_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.textBoxThermique);
+            this.panel1.Controls.Add(this.labelThermique);
+            this.panel1.Controls.Add(this.buttonThermique);
+            this.panel1.Controls.Add(this.textBoxTensionLire);
+            this.panel1.Controls.Add(this.labelTensionMoteur);
+            this.panel1.Controls.Add(this.buttonLireTension);
+            this.panel1.Location = new System.Drawing.Point(12, 52);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(420, 324);
+            this.panel1.TabIndex = 6;
+            // 
+            // labelTensionMoteur
+            // 
+            this.labelTensionMoteur.AutoSize = true;
+            this.labelTensionMoteur.Location = new System.Drawing.Point(22, 11);
+            this.labelTensionMoteur.Name = "labelTensionMoteur";
+            this.labelTensionMoteur.Size = new System.Drawing.Size(116, 13);
+            this.labelTensionMoteur.TabIndex = 6;
+            this.labelTensionMoteur.Text = "Tension moteur en Volt";
+            // 
+            // textBoxTensionLire
+            // 
+            this.textBoxTensionLire.Location = new System.Drawing.Point(63, 36);
+            this.textBoxTensionLire.Name = "textBoxTensionLire";
+            this.textBoxTensionLire.ReadOnly = true;
+            this.textBoxTensionLire.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBoxTensionLire.Size = new System.Drawing.Size(88, 20);
+            this.textBoxTensionLire.TabIndex = 7;
+            this.textBoxTensionLire.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxThermique
+            // 
+            this.textBoxThermique.Location = new System.Drawing.Point(63, 104);
+            this.textBoxThermique.Name = "textBoxThermique";
+            this.textBoxThermique.ReadOnly = true;
+            this.textBoxThermique.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBoxThermique.Size = new System.Drawing.Size(88, 20);
+            this.textBoxThermique.TabIndex = 10;
+            this.textBoxThermique.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // labelThermique
+            // 
+            this.labelThermique.AutoSize = true;
+            this.labelThermique.Location = new System.Drawing.Point(22, 79);
+            this.labelThermique.Name = "labelThermique";
+            this.labelThermique.Size = new System.Drawing.Size(121, 13);
+            this.labelThermique.TabIndex = 9;
+            this.labelThermique.Text = "Pourcentage Thermique";
+            // 
+            // buttonThermique
+            // 
+            this.buttonThermique.Location = new System.Drawing.Point(13, 101);
+            this.buttonThermique.Name = "buttonThermique";
+            this.buttonThermique.Size = new System.Drawing.Size(44, 23);
+            this.buttonThermique.TabIndex = 8;
+            this.buttonThermique.Text = "Lire";
+            this.buttonThermique.UseVisualStyleBackColor = true;
+            this.buttonThermique.Click += new System.EventHandler(this.buttonThermique_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 394);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBoxStatut);
             this.Controls.Add(this.buttonDeconnexion);
             this.Controls.Add(this.buttonConnexion);
@@ -97,6 +178,8 @@ namespace modbusTP
             this.Controls.Add(this.labelAdresseIP);
             this.Name = "Form1";
             this.Text = "Barrière Modbus";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,9 +192,16 @@ namespace modbusTP
         private System.Windows.Forms.Button buttonConnexion;
         private System.Windows.Forms.Button buttonDeconnexion;
         private System.Windows.Forms.TextBox textBoxStatut;
+        private System.Windows.Forms.Button buttonLireTension;
+        private System.Windows.Forms.Panel panel1;
 
         private Socket socket;
         private IPEndPoint ep;
+        private System.Windows.Forms.TextBox textBoxTensionLire;
+        private System.Windows.Forms.Label labelTensionMoteur;
+        private System.Windows.Forms.TextBox textBoxThermique;
+        private System.Windows.Forms.Label labelThermique;
+        private System.Windows.Forms.Button buttonThermique;
     }
 }
 
