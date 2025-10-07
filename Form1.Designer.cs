@@ -1,4 +1,7 @@
-﻿namespace modbusTP
+﻿using System.Net;
+using System.Net.Sockets;
+
+namespace modbusTP
 {
     partial class Form1
     {
@@ -50,6 +53,7 @@
             this.textBoxAdresseIP.Name = "textBoxAdresseIP";
             this.textBoxAdresseIP.Size = new System.Drawing.Size(154, 20);
             this.textBoxAdresseIP.TabIndex = 1;
+            this.textBoxAdresseIP.Text = "172.17.50.124";
             // 
             // buttonConnexion
             // 
@@ -69,6 +73,7 @@
             this.buttonDeconnexion.TabIndex = 3;
             this.buttonDeconnexion.Text = "Deconnexion";
             this.buttonDeconnexion.UseVisualStyleBackColor = true;
+            this.buttonDeconnexion.Click += new System.EventHandler(this.buttonDeconnexion_Click);
             // 
             // textBoxStatut
             // 
@@ -104,6 +109,9 @@
         private System.Windows.Forms.Button buttonConnexion;
         private System.Windows.Forms.Button buttonDeconnexion;
         private System.Windows.Forms.TextBox textBoxStatut;
+
+        private Socket socket;
+        private IPEndPoint ep;
     }
 }
 
